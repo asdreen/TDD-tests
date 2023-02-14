@@ -84,7 +84,6 @@ describe("Test APIs", () => {
 
   it("Should test that GET /products/:id returns the correct product", async () => {
     const response = await client.get("/products");
-    console.log(response.body[0]);
     const initialResponseId = response.body[0]._id;
     const response2 = await client
       .get("/products/" + initialResponseId)
@@ -93,9 +92,8 @@ describe("Test APIs", () => {
   });
 
   // exercise nr 4
-  it("Should test that DELETE /products/:id returns 204 after deletion", async () => {
+  it("Should test that DELETE /products/:id returns 204 after delete", async () => {
     const response = await client.get("/products");
-    console.log(response.body[0]);
     const initialResponseId = response.body[0]._id;
     const response2 = await client
       .delete("/products/" + initialResponseId)
@@ -112,7 +110,6 @@ describe("Test APIs", () => {
 
   it("Should test that PUT /products/:id accepts requests", async () => {
     const response = await client.get("/products");
-    console.log(response.body[0]);
     const initialResponseId = response.body[0]._id;
     const response2 = await client
       .put("/products/" + initialResponseId)
@@ -129,7 +126,6 @@ describe("Test APIs", () => {
 
   it("Should test that editing a product name with PUT /products/:id is successful", async () => {
     const response = await client.get("/products");
-    console.log(response.body[0]);
     const initialResponseId = response.body[0]._id;
     const initialResponseName = response.body[0].name;
     const response2 = await client
@@ -143,7 +139,6 @@ describe("Test APIs", () => {
 
   it("Should test that the type of name in a response from PUT /products/:id is 'string'", async () => {
     const response = await client.get("/products");
-    console.log(response.body[0]);
     const initialResponseId = response.body[0]._id;
     const initialResponseName = response.body[0].name;
     const response2 = await client
